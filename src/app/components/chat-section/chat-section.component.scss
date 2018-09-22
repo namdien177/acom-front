@@ -1,0 +1,114 @@
+$hoverEffect: rgba(0, 0, 0, 0.3);
+$shadowBox: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+.friend-section{
+    position: absolute;
+    height: calc(100vh - 4rem);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    transition: width 0.4s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    display: inline-block;
+    z-index: 1;
+    box-shadow: $shadowBox;
+
+    > div{
+        width: 230px !important;
+        overflow: hidden !important;
+    }
+
+    > div.title{
+        font-size: 1rem;
+        color: white;
+        text-align: center;
+        line-height: 1.5rem;
+        z-index: -1;
+    }   
+    
+    > .list-friend{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        > .a-friend {
+            height: 3rem;
+            display: grid;
+            grid-template-areas: 
+            'coverim names'
+            'coverim actions';
+            grid-gap: 0.5rem;
+            grid-template-columns: 3rem auto;
+            grid-template-rows: 1.5rem 1rem;
+            margin: 5px 0;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.200);
+            cursor: pointer;
+    
+            > .img-cover{
+                grid-area: coverim;
+                height: 3rem;
+                width: 3rem;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: relative;
+                border-radius: 0.5rem;
+            }
+    
+            > .img-cover::before{
+                content: '';
+                height: 3rem !important;
+                border: 3px solid rgb(248, 31, 31);
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                border-radius: 0.5rem 0 0 0.5rem;
+            }
+    
+            > .online.img-cover::before{
+                content: '';
+                height: 3rem !important;
+                border: 3px solid rgb(36, 190, 36);
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+            }
+    
+            > .name{
+                grid-area: names;
+                display: block;
+                text-overflow: ellipsis;
+                height: 1.5rem;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                overflow: hidden;
+                color: white;
+            }
+    
+            > .action{
+                grid-area: actions;
+                display: block;
+                text-overflow: ellipsis;
+                font-size: 0.8rem;
+                line-height: 1rem;
+                overflow: hidden;
+                color: gray;
+            }
+    
+            > .online.action{
+                color: rgb(36, 190, 36) !important;
+            }
+        }
+    }
+}
+
+.friend-section:hover{
+    width: 250px;
+}

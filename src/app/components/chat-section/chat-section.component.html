@@ -1,0 +1,16 @@
+<div class="friend-section" *ngIf="!(isHandset$ | async)">
+  <div class="title">Bạn bè</div>
+  <hr style="width: 230px">
+  <div class="list-friend">
+    <div class="a-friend">
+      <div class="img-cover online" [ngStyle]="{'background-image': 'url(' + test + ')' }"></div>
+      <div class="name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod animi ratione pariatur veritatis illo tenetur sequi facere, cumque magnam deleniti atque iste reprehenderit? Rem dicta, amet eius est modi quo.</div>
+      <div class="action online">Reading: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ducimus magni error obcaecati quam recusandae eos architecto culpa. Voluptates nulla cumque quas excepturi beatae quia delectus cum suscipit. Sit, autem?</div>
+    </div>
+    <div class="a-friend">
+      <div class="img-cover" [ngStyle]="{'background-image': 'url(' + test + ')' }"></div>
+      <div class="name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod animi ratione pariatur veritatis illo tenetur sequi facere, cumque magnam deleniti atque iste reprehenderit? Rem dicta, amet eius est modi quo.</div>
+      <div class="action">Offline :(</div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import url('https://fonts.googleapis.com/css?family=Karla&subset=latin-ext');
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.container{
+    width: 100% !important;   
+    position: relative; 
+    margin: 0;
+    padding: 1rem;
+}
+
+.container-fluid{
+    width: 100% !important;   
+    position: relative; 
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1rem;
+    transition: background-color 0.4s;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.round-left{
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+.round-right{
+    border-radius: 0 0.5em 0.5em 0;
+}
+
+.round{
+    border-radius: 0.5em;
+}
+
+.circle{
+    border-radius: 50%;
+}

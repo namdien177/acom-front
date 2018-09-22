@@ -1,0 +1,129 @@
+.friend-section {
+  position: absolute;
+  height: calc(100vh - 4rem);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-transition: width 0.4s;
+  transition: width 0.4s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+  display: inline-block;
+  z-index: 1;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.friend-section > div {
+  width: 230px !important;
+  overflow: hidden !important;
+}
+
+.friend-section > div.title {
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  line-height: 1.5rem;
+  z-index: -1;
+}
+
+.friend-section > .list-friend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.friend-section > .list-friend > .a-friend {
+  height: 3rem;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'coverim names' 'coverim actions';
+  grid-gap: 0.5rem;
+  -ms-grid-columns: 3rem auto;
+      grid-template-columns: 3rem auto;
+  -ms-grid-rows: 1.5rem 1rem;
+      grid-template-rows: 1.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.friend-section > .list-friend > .a-friend > .img-cover {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: coverim;
+  height: 3rem;
+  width: 3rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.friend-section > .list-friend > .a-friend > .img-cover::before {
+  content: '';
+  height: 3rem !important;
+  border: 3px solid #f81f1f;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.friend-section > .list-friend > .a-friend > .online.img-cover::before {
+  content: '';
+  height: 3rem !important;
+  border: 3px solid #24be24;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.friend-section > .list-friend > .a-friend > .name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: names;
+  display: block;
+  text-overflow: ellipsis;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+  color: white;
+}
+
+.friend-section > .list-friend > .a-friend > .action {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: actions;
+  display: block;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  overflow: hidden;
+  color: gray;
+}
+
+.friend-section > .list-friend > .a-friend > .online.action {
+  color: #24be24 !important;
+}
+
+.friend-section:hover {
+  width: 250px;
+}
+/*# sourceMappingURL=chat-section.component.css.map */
