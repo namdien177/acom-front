@@ -1,100 +1,70 @@
-<!-- <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    fixedInViewport="false"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)"
-    [ngClass]="{hidden: !(isHandset$ | async) }">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#"><mat-icon aria-label="Manga icon">book</mat-icon>Manga</a>
-      <a mat-list-item href="#"><mat-icon aria-label="Author icon">face</mat-icon>Tác giả</a>
-      <a mat-list-item href="#"><mat-icon aria-label="Translate Team icon">group</mat-icon>Nhóm dịch</a>
-      <a mat-list-item href="#"><mat-icon aria-label="Category icon">category</mat-icon>Thể Loại</a>
-      <a mat-list-item href="/"><mat-icon aria-label="Login icon">account_circle</mat-icon>Đăng nhập</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-          <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
-        <a href="/">Acomici</a>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Home icon">home</mat-icon>
-          Trang chủ
-        </a>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Manga icon">book</mat-icon>
-          Manga
-        </a>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Author icon">face</mat-icon>
-          Tác giả
-        </a>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Translate Team icon">group</mat-icon>
-          Nhóm dịch
-        </a>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Category icon">category</mat-icon>
-          Thể loại
-        </a>
-        <form action="">
-          <mat-form-field [floatLabel]="never" [hideRequiredMarker]='true' >
-            <input matInput placeholder="Nhập bất kì để tìm..." required>
-          </mat-form-field>
-        </form>
-        <span class="spacer" *ngIf="!(isHandset$ | async)"></span>
-        <a href="/" *ngIf="!(isHandset$ | async)">
-          <mat-icon aria-label="Login icon">account_circle</mat-icon>
-          Đăng nhập
-        </a>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    Add Content Here
-    
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-<div class="nav-container">
-  <div class="nav-mobile-toggle">
+<div class="nav-container" [ngClass]="{'mobile-state': (isHandset$ | async) }">
+  <div class="nav-mobile-toggle" (click)="mobileIconClick()">
     <i class="material-icons">
         apps
     </i>
   </div>
-  <div class="nav-mobile">
-    content
+  <div class="nav-mobile" [ngClass]="{'active-menu-mobile': isMobileMenu }">
+    <div class="nav-mobile-content" [ngClass]="{ 'active-nav-mobile-content': isMobileMenu }">
+      <a href="/" class="nav-comp">
+        <i class="material-icons">home</i>
+        Trang chủ
+      </a>
+      <a href="/" class="nav-comp">
+        <i class="material-icons">book</i>
+        Manga
+      </a>
+      <a href="/" class="nav-comp">
+        <i class="material-icons">category</i>
+        Thể loại
+      </a>
+      <a href="/" class="nav-comp">
+        <i class="material-icons">
+          supervisor_account
+        </i>
+        Tác giả / Người dịch
+      </a>
+      <span class="nav-blank"></span>
+      <a href="/" class="nav-comp">
+        <i class="material-icons">
+          perm_identity
+        </i>  
+        Đăng nhập
+      </a>
+    </div>
+    <div class="blank" (click)="outsideClick()"></div>
   </div>
   <div class="nav-desktop">
-    <div class="nav-comp header">
+    <a href="/" class="nav-comp header always-visible">
       Acomici
-    </div>
-    <div class="nav-comp">
+    </a>
+    <a href="/" class="nav-comp">
+      <i class="material-icons">home</i>
       Trang chủ
-    </div>
-    <div class="nav-comp">
+    </a>
+    <a href="/" class="nav-comp">
+      <i class="material-icons">book</i>
       Manga
-    </div>
-    <div class="nav-comp">
+    </a>
+    <a href="/" class="nav-comp">
+      <i class="material-icons">category</i>
       Thể loại
-    </div>
-    <div class="nav-comp">
+    </a>
+    <a href="/" class="nav-comp">
+      <i class="material-icons">
+        supervisor_account
+      </i>
       Tác giả / Người dịch
-    </div>
-    <div class="nav-comp">
-      long text
-    </div>
-    <div class="nav-comp">
+    </a>
+    <form class="nav-comp nav-form always-visible" #searchNavBar="ngForm" (ngSubmit)="navSearch()">
+      <input placeholder="Tìm kiếm tên manga, tên tác giả, hay tên nhân vật..." name="searchNavBarText" [(ngModel)]="searchNavBarText" type="text">
+    </form>
+    <a href="/" class="nav-comp">
+      <i class="material-icons">
+        perm_identity
+      </i>  
       Đăng nhập
-    </div>
+    </a>
   </div>
 </div>
 <ng-content></ng-content>

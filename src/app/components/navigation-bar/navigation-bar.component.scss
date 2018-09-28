@@ -1,68 +1,8 @@
-.sidenav-container {
-    height: 100%;
-}
-  
-.sidenav {
-    width: 200px;
-}
-
-.mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-}
-
-mat-toolbar-row {
-
-    & a{
-        color: white;
-        line-height: 4rem;
-        padding-left: 2.5rem;
-        padding-right: 1rem;
-        position: relative;
-    }
-
-    & mat-icon{
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 1.5rem;
-        transform: translate(50%, -50%);
-    }
-    
-    & a:hover{
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-    & a:first-child{
-        padding: 1.25rem 1rem 1.25rem 0.5rem;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-    }
-
-    & a:first-child:hover{
-        background: rgba(0, 0, 0, 0);
-    }
-}
-
-.spacer{
-    flex: 1 1 auto;
-}
-
-form{
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 1rem;
-    line-height: 1rem;
-    position: relative;
-}
-
-
-
 .nav-container{
     height: 3.5rem;
     width: 100% !important;
     display: grid;
-    grid-template-columns: 3.5rem auto;
+    grid-template-columns: auto;
     grid-template-rows: 1fr;
     grid-gap: 0;
     padding: 0 ;
@@ -84,6 +24,7 @@ form{
         height: 3.5rem;
         position: relative;
         background: rgba(0, 0, 0, 0.2);
+        display: none;
     }
 
     > .nav-desktop{
@@ -103,38 +44,142 @@ form{
         }
 
         > .nav-comp{
-          padding: 0 1rem;
-          font-size: 1rem;
-          line-height: 3.5rem;
+            padding: 0 1rem;
+            font-size: 1rem;
+            line-height: 3.5rem;
+            position: relative;
         }
 
-        > .nav-comp:not(.header){
-          transition: 0.4s;
+        > .nav-comp:not(.header):not(.nav-form){
+            padding: 0 1rem 0 2.5rem;
+            transition: 0.4s;
+          
+            i{
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 0rem;
+                transform: translate(50%, -50%);
+            }
         }
 
-        > .nav-comp:not(.header):hover{
+        > .nav-comp:not(.header):not(.nav-form):hover{
           color: white;
-          background: rgba(0, 0, 0, 0.2);
+          background: rgba(0, 0, 0, 0.4);
         }
     }
 
     > .nav-mobile{
         position: absolute;
         height: 100vh !important;
-        width: 30vw;
-        background: white;
+        width: 100%;
+        background: rgba(255, 255, 255, 0);
         z-index: 10;
-        transition: 0.3s;
+        transition: background-color 0.3s;
+        display: none;
+        grid-template-columns: 250px auto;
+        grid-gap: 0;
+        grid-template-rows: 1fr;
+
+        > .nav-mobile-content{
+            left: -100%;
+            background: white;
+            width: 250px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            padding: 0;
+            margin: 0;
+            transition: left 0.4s;
+
+            > .nav-comp{
+                padding: 0 1rem 0 3rem;
+                font-size: 1rem;
+                line-height: 3.5rem;
+                width: 100%;
+                position: relative;
+
+                i{
+                    font-size: 2rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 0.5rem;
+                    transform: translate(0, -50%);
+                }
+            }
+
+            > .nav-blank{
+                height: 100%;
+            }
+        }
+
+        > .blank{
+            height: 100% !important;
+        }
+    }
+}
+
+.mobile-state{
+    grid-template-columns: 3.5rem auto;
+
+    > .nav-mobile-toggle{
+        display: block;
+    }
+
+    > .nav-desktop{
+        display: grid;
+        grid-template-columns:
+          max-content auto;
+        grid-template-rows: 1fr;
+        grid-gap: 0;
+
+        > .nav-comp:not(.always-visible){
+            display: none;
+        }
+    }
+
+    > .active-menu-mobile{
+        display: grid !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+
+        > .active-nav-mobile-content{
+            left: 0 !important;
+        }
     }
 }
 
 .nav-container:hover{
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.666);
 }
 
 .hidden{
-  display: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  display: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+form.nav-form{
+    height: 3.5rem !important;
+    width: 100%;
+
+    > input{
+        font-size: 1rem;
+        padding: 1rem;
+        border: 0;
+        appearance: none;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        outline: none;
+        color: gray;
+        transition: background-color 0.5s, color 0.5s, font-size 0.5s;
+    }
+
+    > input:focus{
+        background: rgba(0, 0, 0, 0.2);
+        color: black;
+        font-size: 1.1rem;
+    }
 }

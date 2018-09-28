@@ -10,6 +10,8 @@ import { ErrorPageComponent } from './views/error-page/error-page.component';
 import { ChatSectionComponent } from './components/chat-section/chat-section.component';
 import { RouteModule } from './routes/route/route.module';
 import { MaterialPackageModule } from './materials/material-package/material-package.module';
+import { WINDOW_PROVIDERS } from './WINDOW_PROVIDER';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,13 @@ import { MaterialPackageModule } from './materials/material-package/material-pac
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     RouteModule,
     MaterialPackageModule
   ],
-  providers: [],
+  providers: [
+    WINDOW_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
