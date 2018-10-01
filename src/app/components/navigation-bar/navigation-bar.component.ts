@@ -38,12 +38,12 @@ export class NavigationBarComponent implements OnInit {
 
   }
 
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event) {
-  //   // this.isHandset$.subscribe(bool => {
-  //   //   this.calculateDynamicWidth(bool);
-  //   // });
-  // }
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.isHandset$.subscribe(bool => {
+      this.calculateDynamicWidth(bool);
+    });
+  }
 
   @ViewChild('getWidthDesktop')
   deskCalculate: ElementRef;
