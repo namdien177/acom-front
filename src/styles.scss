@@ -3,6 +3,13 @@
 @import "./fontawesome/scss/fontawesome.scss";
 // @import "./fontawesome/scss/solid.scss";
 @import url('https://fonts.googleapis.com/css?family=Karla&subset=latin-ext');
+
+// Import External Styles
+@import url('./Style/shape.scss');      //style for shaping elements
+@import url('./Style/image.scss');      //style for image tag <img>
+@import url('./Style/text.scss');       //style for text <p> / <span> / ...
+@import url('./Style/align.scss');       //style for align items
+//
 *, *::after, *::before{
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
@@ -15,6 +22,9 @@ html, body{
     height: 100% !important;
 }
 
+body{
+    background: cornflowerblue;
+}
 
 .container{
     width: 100% !important;   
@@ -40,20 +50,4 @@ a{
 
 .hidden{
     display: none !important;
-}
-
-.round-left{
-    border-radius: 0.5em 0 0 0.5em;
-}
-
-.round-right{
-    border-radius: 0 0.5em 0.5em 0;
-}
-
-.round{
-    border-radius: 0.5em;
-}
-
-.circle{
-    border-radius: 50%;
 }

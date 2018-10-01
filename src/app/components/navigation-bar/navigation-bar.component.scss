@@ -7,8 +7,24 @@
     grid-gap: 0;
     padding: 0 ;
     position: relative;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0);
     transition: 0.4s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    
+    .nav-blur{
+        position: absolute;
+        display: block;
+        height: 3.5rem;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 1);
+        opacity: 0.5;
+    }
+
+    .nav-blur::before{
+        content: "";
+    }
 
     > .nav-mobile-toggle i{
         font-size: 2rem;   
@@ -43,7 +59,7 @@
           line-height: 3.5rem;
         }
 
-        > .nav-comp{
+        > .nav-comp:not(.nav-form){
             padding: 0 1rem;
             font-size: 1rem;
             line-height: 3.5rem;
@@ -120,8 +136,19 @@
     }
 }
 
+/***                ********************    ************    ************    ****    ****            ************
+*                   ********************    ************    ************    ****    ****            ************
+*                   ****    ****    ****    ****    ****    ****    ****    ****    ****            ****        
+*                   ****    ****    ****    ****    ****    ************    ****    ****            ************
+* CSS FOR Mobile    ****    ****    ****    ****    ****    ************    ****    ****            ************
+*                   ****    ****    ****    ****    ****    ****    ****    ****    ****            ****        
+*                   ****    ****    ****    ************    ************    ****    ************    ************
+*                   ****    ****    ****    ************    ************    ****    ************    ************
+***/
+
 .mobile-state{
     grid-template-columns: 3.5rem auto;
+    grid-gap: 0;
 
     > .nav-mobile-toggle{
         display: block;
@@ -137,20 +164,34 @@
         > .nav-comp:not(.always-visible){
             display: none;
         }
+
+        .search-result-mobile{
+            font-size: 0.6rem !important;
+            
+            > .search-result-section{
+                > .result{
+                    > .cover{
+                        height: 2.75rem !important; 
+                        width:2rem !important;
+                    }
+        
+                    > .name{
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+        }
     }
 
     > .active-menu-mobile{
         display: grid !important;
+        grid-gap: 0;
         background: rgba(0, 0, 0, 0.5) !important;
 
         > .active-nav-mobile-content{
             left: 0 !important;
         }
     }
-}
-
-.nav-container:hover{
-    background: rgba(255, 255, 255, 0.666);
 }
 
 .hidden{
@@ -160,10 +201,23 @@
   appearance: none !important;
 }
 
+/***                ************    ************    **********      ********************
+*                   ************    ************    ***********     ********************
+*                   ****            ****    ****    ****    ****    ****    ****    ****
+*                   ************    ****    ****    ***********     ****    ****    ****
+* CSS FOR FORM      ************    ****    ****    ****  ****      ****    ****    ****
+*                   ****            ****    ****    ****    ***     ****    ****    ****
+*                   ****            ************    ****     ***    ****    ****    ****
+*                   ****            ************    ****      **    ****    ****    ****
+***/
 form.nav-form{
     height: 3.5rem !important;
     width: 100%;
-
+    padding: 0;
+    font-size: 1rem;
+    line-height: 3.5rem;
+    position: relative;
+    
     > input{
         font-size: 1rem;
         padding: 1rem;
@@ -179,7 +233,125 @@ form.nav-form{
 
     > input:focus{
         background: rgba(0, 0, 0, 0.2);
-        color: black;
-        font-size: 1.1rem;
+        color: white;
     }
+
+    .search-result{
+        position: absolute;
+        width: 100%;
+        right: 0;
+        top: 3.5rem;
+        background: white;
+        z-index: 9;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        padding: 0;
+        overflow: auto;
+        overflow-x:hidden;
+        max-height: 50vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        > .search-result-section{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-gap: 0;
+            position: relative;
+
+            > *{
+                width: 100% !important;
+            }
+
+            > .title{
+                display: grid;
+                grid-template-columns: auto max-content;
+                grid-template-rows: 1fr;
+                grid-gap: 0;
+                font-size: 1.2rem;
+                padding: 0 0.5rem 0 0.5rem;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.767);
+                position: sticky;
+                top: 0;
+                > .title-right{
+                    font-size: 1rem;
+                    justify-self: end;
+                }
+            }
+
+            > .result{
+                padding: 0.5rem;
+                width: 100% !important;
+                display: grid;
+                grid-template-areas:
+                'covers  names      names'
+                'covers  author     view';
+                grid-template-columns: 4rem auto max-content;
+                grid-template-rows: 2.75rem;
+                grid-gap: 0rem;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                align-items: center;
+
+                > .cover{
+                    grid-area: covers;
+                    height: 5.5rem; 
+                    width: 4rem;
+                }
+
+                > .name{
+                    grid-area: names;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    font-size: 1.5rem;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                }
+
+                > .author{
+                    grid-area: author;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    font-size: 0.9rem;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                > .view{
+                    grid-area: view;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    font-size: 0.9rem;
+                }
+            }
+
+            > .result:hover{
+                background: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        > .option{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            background: rgba(128, 128, 128, 0.2);
+            font-size: 1rem;
+            
+            > *{
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                width: 100%;
+                text-align: center
+            }
+        }
+    }
+
+
+    
 }

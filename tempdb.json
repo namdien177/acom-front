@@ -1,0 +1,77 @@
+{
+    "manga":[
+        {
+            "id": 1,
+            "name": "Hayate no Gotoku",
+            "author":[
+                {
+                    "id":1,
+                    "name": "Kenjiro Hata"
+                }
+            ],
+            "view": 123456789,
+            "tags":[
+                {
+                    "id":1,
+                    "name": "comedy",
+                    "description":"lorem asdnhc asoj nco nwl uvn lscasc ashvnqw lpko ascano"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Kami Nomi zo Shiru Sekai",
+            "alias":["The World God Only Knows"],
+            "author":[
+                {
+                    "id":2,
+                    "name": "Tamiki Wakaki"
+                }
+            ],
+            "view": 123456789,
+            "tags":[
+                {
+                    "id":1,
+                    "name": "comedy",
+                    "description":"lorem asdnhc asoj nco nwl uvn lscasc ashvnqw lpko ascano"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Kanojo, Okarishimasu",
+            "author":[
+                {
+                    "id":4,
+                    "name": "Reiji Miyajima"
+                }
+            ],
+            "view": 1230789,
+            "tags":[
+                {
+                    "id":1,
+                    "name": "comedy",
+                    "description":"lorem asdnhc asoj nco nwl uvn lscasc ashvnqw lpko ascano"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Tonikaku Cawaii",
+            "author":[
+                {
+                    "id":3,
+                    "name": "Kenjiro Hata"
+                }
+            ],
+            "view": 123000789,
+            "tags":[
+                {
+                    "id":1,
+                    "name": "comedy",
+                    "description":"lorem asdnhc asoj nco nwl uvn lscasc ashvnqw lpko ascano"
+                }
+            ]
+        }
+    ]
+}

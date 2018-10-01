@@ -1,0 +1,16 @@
+.round-left {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.round-right {
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.round {
+  border-radius: 0.5em;
+}
+
+.circle {
+  border-radius: 50%;
+}
+/*# sourceMappingURL=shape.css.map */

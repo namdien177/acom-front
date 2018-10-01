@@ -1,0 +1,45 @@
+@mixin padd-side( $length) {
+    padding-left: $length;
+    padding-right: $length;
+}
+
+@mixin padd-all( $length) {
+    padding: $length;
+}
+
+@mixin span-x() {
+    width: 100% !important;
+}
+
+@mixin span-y() {
+    height: 100% !important;
+}
+
+.padding-small{
+    @include padd-all(0.5rem);
+}
+
+.padding{
+    @include padd-all(1rem)
+}
+
+.padding-small-side{
+    @include padd-side(0.5rem);
+}
+
+.padding-side{
+    @include padd-side(1rem);
+}
+
+.span-fit-width{
+    @include span-x();
+}
+
+.span-fit-height{
+    @include span-y();
+}
+
+.span-fit {
+    @include span-x();
+    @include span-y();
+}

@@ -1,0 +1,26 @@
+.padding-small {
+  padding: 0.5rem;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.padding-small-side {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.padding-side {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.span-fit-width {
+  width: 100%;
+}
+
+.span-fit-height {
+  height: 100%;
+}
+/*# sourceMappingURL=align.css.map */

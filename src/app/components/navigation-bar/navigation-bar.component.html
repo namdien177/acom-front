@@ -1,4 +1,5 @@
 <div class="nav-container" [ngClass]="{'mobile-state': (isHandset$ | async) }">
+  <div class="nav-blur"></div>
   <div class="nav-mobile-toggle" (click)="mobileIconClick()">
     <i class="material-icons">
         apps
@@ -34,7 +35,7 @@
     </div>
     <div class="blank" (click)="outsideClick()"></div>
   </div>
-  <div class="nav-desktop">
+  <div #getWidthMobile class="nav-desktop">
     <a href="/" class="nav-comp header always-visible">
       Acomici
     </a>
@@ -56,8 +57,47 @@
       </i>
       Tác giả / Người dịch
     </a>
-    <form class="nav-comp nav-form always-visible" #searchNavBar="ngForm" (ngSubmit)="navSearch()">
+    <form #getWidthDesktop class="nav-comp nav-form always-visible" #searchNavBar="ngForm" (ngSubmit)="navSearch()">
       <input placeholder="Tìm kiếm tên manga, tên tác giả, hay tên nhân vật..." name="searchNavBarText" [(ngModel)]="searchNavBarText" type="text">
+      <div  class="search-result" [ngClass]="{'search-result-mobile': isMobileMenu }" >
+        <div class="search-result-section">
+          <div class="text-muted title">
+            <span class="title-left">Manga</span>
+            <span class="title-right">0 kết quả</span>
+          </div>
+          <a href="\" class="result cover-round">
+            <img src="https://2.bp.blogspot.com/-yUaW2DBdZfo/W695mfhX7tI/AAAAAAAHX7s/Nv_zHQSbR_o5kba78yYrdCQrT62umljMgCHMYCw/s0/001.jpg" 
+            alt="cover" srcset="" class="cover fit">
+            <span class="name">Hayate no gotoku s Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, minima.</span>
+            <span class="author text-muted">Tác giả: kenji</span>
+            <span class="view text-muted">Lượt xem: 123456</span>
+          </a>
+          <a href="\" class="result cover-round">
+            <img src="https://2.bp.blogspot.com/-yUaW2DBdZfo/W695mfhX7tI/AAAAAAAHX7s/Nv_zHQSbR_o5kba78yYrdCQrT62umljMgCHMYCw/s0/001.jpg" 
+            alt="cover" srcset="" class="cover">
+            <span class="name">Hayate no gotoku s Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, minima.</span>
+            <span class="author text-muted">Tác giả: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos dolores, necessitatibus fugiat aspernatur corrupti beatae porro perspiciatis asperiores eveniet impedit perferendis quidem adipisci, laborum magni facere similique quae vero neque? kenji</span>
+            <span class="view text-muted">Lượt xem: 123456</span>
+          </a>
+        </div>
+        <div class="search-result-section">
+          <div class="text-muted title">
+            <span class="title-left">Tác giả</span>
+            <span class="title-right">0 kết quả</span>
+          </div>
+          some content
+        </div>
+        <div class="search-result-section">
+          <div class="text-muted title">
+            <span class="title-left">Nhân vật</span>
+            <span class="title-right">0 kết quả</span>
+          </div>
+          some content
+        </div>
+        <div class="text-muted option">
+          <a href="/">Xem thêm</a>
+        </div>
+      </div>
     </form>
     <a href="/" class="nav-comp">
       <i class="material-icons">

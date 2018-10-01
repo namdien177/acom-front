@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
@@ -12,6 +13,7 @@ import { RouteModule } from './routes/route/route.module';
 import { MaterialPackageModule } from './materials/material-package/material-package.module';
 import { WINDOW_PROVIDERS } from './WINDOW_PROVIDER';
 import { FormsModule } from '@angular/forms';
+import { MangaService } from './services/manga.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     RouteModule,
+    HttpClientModule,
     MaterialPackageModule
   ],
   providers: [
-    WINDOW_PROVIDERS
+    WINDOW_PROVIDERS,
+    MangaService
   ],
   bootstrap: [AppComponent]
 })
